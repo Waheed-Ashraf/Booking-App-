@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const Color radialColor = Color.fromRGBO(203, 247, 235, .8);
+const Color transparent = Colors.transparent;
+///// Not used yet
 const Color primaryColor = Color(0xFF3D7FFF);
 const Color lightPrimaryColor = Color(0xFFD2E8EF);
 const Color bordrColor = Color(0xff0096CF);
