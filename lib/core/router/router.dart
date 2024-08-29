@@ -1,5 +1,5 @@
 import 'package:booking_depi_proj/features/authentication/sign-in/view/sign_in_screen.dart';
-import 'package:booking_depi_proj/features/authentication/sign-up/view/sign_up_screen.dart';
+import 'package:booking_depi_proj/features/authentication/sign-up/view/screens/sign_up_screen.dart';
 import 'package:booking_depi_proj/features/home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

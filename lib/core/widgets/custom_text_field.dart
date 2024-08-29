@@ -17,9 +17,11 @@ class CustomTextField extends StatefulWidget {
     this.suffixIcon,
     this.maxLength,
     this.onFieldSubmitted,
+    this.textInputAction = TextInputAction.next,
   });
   final Function(String)? onFieldSubmitted;
   final int? maxLines;
+  final TextInputAction textInputAction;
   final Color? textFieldBorderColor;
   final String? prefixIcon;
   final IconData? suffixIcon;
@@ -46,6 +48,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textInputAction: widget.textInputAction,
         style: Theme.of(context)
             .textTheme
             .bodyMedium!
@@ -78,6 +81,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: primaryColor, width: 1.5),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: redColor.withOpacity(.7), width: 1.5),
+            borderRadius: BorderRadius.circular(2),
+          ),
+          focusedErrorBorder:OutlineInputBorder(
+            borderSide: BorderSide(color: redColor.withOpacity(.7), width: 1.5),
             borderRadius: BorderRadius.circular(8),
           ),
           border: OutlineInputBorder(

@@ -1,8 +1,9 @@
 import 'package:booking_depi_proj/core/router/router.dart';
-import 'package:booking_depi_proj/features/authentication/sign-up/view/sign_up_screen.dart';
+import 'package:booking_depi_proj/features/authentication/sign-up/view/screens/sign_up_screen.dart';
 import 'package:booking_depi_proj/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main()async{
 
@@ -19,11 +20,21 @@ class Booking extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Ehgezly',
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: RouterManager.onGenerateRoute,
-      initialRoute: SignUpScreen.routeName,
+    return ScreenUtilInit(
+      designSize: Size(375, 812),
+      splitScreenMode: false,
+      minTextAdapt: false,
+      child:  MaterialApp(
+        title: 'Ehgezly',
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: RouterManager.onGenerateRoute,
+        initialRoute: SignUpScreen.routeName,
+        theme: ThemeData(
+          fontFamily: 'Rubik',
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          scaffoldBackgroundColor: Colors.white,
+        ),
+      )
     );
   }
 }
