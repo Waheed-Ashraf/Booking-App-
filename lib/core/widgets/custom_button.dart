@@ -8,7 +8,7 @@ class CustomButton extends StatelessWidget {
       this.color = primaryColor,
       this.withBorder = false,
       required this.onPressed,
-      required this.widget});
+       required this.widget});
   final Widget widget;
   final String text;
   final Color? color;
