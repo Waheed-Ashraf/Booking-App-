@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "614519210447",
+    "project_id": "ehgezly-df60a",
+    "storage_bucket": "ehgezly-df60a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614519210447:android:96ba05c1582d42749692ba",
+        "android_client_info": {
+          "package_name": "com.example.booking_depi_proj"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdlkjyM5VGhg1vf00f0xnixs7PYZm1pAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
