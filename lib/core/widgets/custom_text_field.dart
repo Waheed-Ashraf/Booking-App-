@@ -18,6 +18,7 @@ class CustomTextField extends StatefulWidget {
     this.maxLength,
     this.onFieldSubmitted,
     this.textInputAction = TextInputAction.next,
+    this.focusNode,
   });
   final Function(String)? onFieldSubmitted;
   final int? maxLines;
@@ -32,6 +33,7 @@ class CustomTextField extends StatefulWidget {
   final String? text;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
+  final FocusNode? focusNode;
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
@@ -49,6 +51,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return TextFormField(
       textInputAction: widget.textInputAction,
+        focusNode: widget.focusNode,
         style: Theme.of(context)
             .textTheme
             .bodyMedium!
