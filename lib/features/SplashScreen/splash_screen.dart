@@ -1,7 +1,9 @@
-import 'package:booking_depi_proj/modules/home/presentation/views/Onboarding%20screen-01.dart';
+import 'package:booking_depi_proj/core/reusable_widgets/radial_gradient_scaffold/radial_gradient_scaffold.dart';
+import 'package:booking_depi_proj/features/Onboarding/view/Onboarding%20screen-01.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
+  static const routeName = '/Splash';
   const SplashScreen({super.key});
 
   @override
@@ -11,36 +13,34 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 3),() {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Onboarding_Screen01(),));
-    },);
+    Future.delayed(
+      Duration(seconds: 3),
+      () {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Onboarding_Screen01(),
+            ));
+      },
+    );
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return RadialGradientScaffold(
       body: Stack(
         children: [
-          // Background image
-          Positioned.fill(
-            child: Image.asset(
-              'images/bg.png', 
-              fit: BoxFit.cover, 
-            ),
-          ),
-          // Foreground content
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Logo or main image
                 Image.asset(
-                  'images/Logo.png', 
-                  height: 150.0, // 
+                  'assets/images/Logo.png',
+                  height: 150.0, //
                 ),
-            
-               
               ],
             ),
           ),

@@ -8,11 +8,11 @@ class CustomButton extends StatelessWidget {
       this.color = primaryColor,
       this.withBorder = false,
       required this.onPressed,
-       required this.widget});
-  final Widget widget;
-  final String text;
-  final Color? color;
-  final bool withBorder;
+        this.widget});
+final Widget? widget;
+final String text;
+final Color? color;
+final bool withBorder;
   final void Function() onPressed;
 
   @override
@@ -30,7 +30,9 @@ class CustomButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          widget,
+          if(widget != null)
+            widget!,
+
           Text(
             text,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(

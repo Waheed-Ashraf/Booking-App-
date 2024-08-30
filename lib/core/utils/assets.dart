@@ -1,6 +1,12 @@
 class Assets {
   Assets._();
 
+  static const String facebook = 'assets/images/identity_providers/facebook.png';
+  static const String google = 'assets/images/identity_providers/google.png';
+
+
+  // Not used yet
+
   /// Assets for imagesAccount
   /// assets/images/account.svg
 

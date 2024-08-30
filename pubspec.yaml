@@ -34,6 +34,7 @@ dependencies:
   firebase_core: ^2.24.2
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
   get_it: ^7.7.0
   intl: ^0.19.0
@@ -48,13 +49,52 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
+
+  fonts:
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/rubik/Rubik-Light.ttf
+          weight: 300
+        - asset: assets/fonts/rubik/Rubik-LightItalic.ttf
+          weight: 300
+          style: italic
+
+        - asset: assets/fonts/rubik/Rubik-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/rubik/Rubik-Italic.ttf
+          weight: 400
+          style: italic
+
+        - asset: assets/fonts/rubik/Rubik-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/rubik/Rubik-MediumItalic.ttf
+          weight: 500
+          style: italic
+
+        - asset: assets/fonts/rubik/Rubik-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/rubik/Rubik-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+
+        - asset: assets/fonts/rubik/Rubik-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/rubik/Rubik-BoldItalic.ttf
+          weight: 700
+          style: italic
+
+        - asset: assets/fonts/rubik/Rubik-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/rubik/Rubik-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/
+    - assets/images/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -79,3 +119,12 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+
+
+
+
+
+ 
+
+
