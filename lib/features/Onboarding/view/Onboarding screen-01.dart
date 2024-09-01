@@ -1,7 +1,7 @@
 import 'package:booking_depi_proj/core/reusable_widgets/filled_button.dart';
 import 'package:booking_depi_proj/core/reusable_widgets/radial_gradient_scaffold/radial_gradient_scaffold.dart';
-import 'package:booking_depi_proj/features/Onboarding/widget/elipsewidget01.dart';
-import 'package:booking_depi_proj/features/Onboarding/widget/imageWidget01.dart';
+import 'package:booking_depi_proj/features/Onboarding/widget/customeElipsewidget01.dart';
+import 'package:booking_depi_proj/features/Onboarding/widget/customeImageWidget01.dart';
 import 'package:booking_depi_proj/features/Onboarding/widget/text_and_descrition_Widget.dart';
 import 'package:booking_depi_proj/features/authentication/sign-in/view/sign_in_screen.dart';
 
@@ -19,7 +19,7 @@ class Onboarding_Screen01 extends StatelessWidget {
         children: [
           const elipsewidget(),
           // Image ellipse
-          const imageWidget(image: "Ellipse 154",),
+          const imageWidget(image: "dentist.jpg",),
           // Center content with text and button
           Align(
             alignment: Alignment.bottomCenter,
@@ -36,7 +36,7 @@ class Onboarding_Screen01 extends StatelessWidget {
 
                       text: "Find Trusted Doctors",
                       description:
-                          "connects you with qualified healthcare professionals in your area, ensuring reliable and high-quality medical care. Easily search by specialty, location, and patient reviews to find the best doctor for your needs"), // Space between description and button
+                          "Meet Dr. Ahmed Hassan, a highly qualified and experienced dentist. Trust him to provide you with exceptional care and a personalized dental experience"), // Space between description and button
                   // Button
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20,top:30),

@@ -31,6 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return RadialGradientScaffold(
       body: Stack(
+        
         children: [
           Center(
             child: Column(
@@ -39,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 // Logo or main image
                 Image.asset(
                   'assets/images/Logo.png',
-                  height: 150.0, //
+                  height: 300.0, //
                 ),
               ],
             ),

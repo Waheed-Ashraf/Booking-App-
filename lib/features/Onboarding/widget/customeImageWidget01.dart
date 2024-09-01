@@ -18,7 +18,7 @@ final String image;
             decoration: BoxDecoration(
               shape: BoxShape.circle, // Make it circular
               image: DecorationImage(
-                image: AssetImage("assets/images/$image.png"), // Replace with your image asset path
+                image: AssetImage("assets/images/$image"), // Replace with your image asset path
                 fit: BoxFit.cover, // Ensures the image covers the circle
               ),
             ),

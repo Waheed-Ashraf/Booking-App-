@@ -1,7 +1,7 @@
 import 'package:booking_depi_proj/core/reusable_widgets/filled_button.dart';
 import 'package:booking_depi_proj/core/reusable_widgets/radial_gradient_scaffold/radial_gradient_scaffold.dart';
-import 'package:booking_depi_proj/features/Onboarding/widget/elipsewidget02.dart';
-import 'package:booking_depi_proj/features/Onboarding/widget/imageWidget01.dart';
+import 'package:booking_depi_proj/features/Onboarding/widget/customeElipsewidget02.dart';
+import 'package:booking_depi_proj/features/Onboarding/widget/customeImageWidget01.dart';
 import 'package:booking_depi_proj/features/Onboarding/widget/text_and_descrition_Widget.dart';
 import 'package:booking_depi_proj/features/authentication/sign-in/view/sign_in_screen.dart';
 import 'package:booking_depi_proj/features/Onboarding/view/Onboarding%20screen-03.dart';
@@ -18,7 +18,9 @@ class Onboarding_Screen02 extends StatelessWidget {
         children: [
           const elipsewidget02(),
           // Image ellipse
-          const imageWidget(image: "Ellipse 154",),
+          const imageWidget(
+            image: "instruments.jpg",
+          ),
           // Center content with text and button
           Align(
             alignment: Alignment.bottomCenter,
@@ -32,9 +34,12 @@ class Onboarding_Screen02 extends StatelessWidget {
                   // Text
 
                   const text_and_descrition_Widget(
-                      text: "Choose Best Doctors", description: "helps you select top-rated and highly skilled medical professionals to meet your healthcare needs, focusing on providing high-quality care based on experience and trust."),
+                      text: "Find Best Tools",
+                      description:
+                          "Our clinic uses state-of-the-art dental tools and technology to ensure the highest standards of care. Experience modern dentistry with Dr. Ahmed Hassan."),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20,top: 30),
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, top: 30),
                     child: CustomFilledButton(
                       text: 'Get Started',
                       onPressed: () {
