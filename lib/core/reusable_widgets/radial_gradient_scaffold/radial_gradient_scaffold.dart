@@ -10,9 +10,8 @@ class RadialGradientScaffold extends StatelessWidget {
 @override
 Widget build(BuildContext context) {
   return Scaffold(
-    resizeToAvoidBottomInset: true, // Ensures the scaffold resizes when keyboard appears
-    body: SingleChildScrollView(
-      child: ConstrainedBox(
+    //resizeToAvoidBottomInset: true, // Ensures the scaffold resizes when keyboard appears
+    body: ConstrainedBox(
         constraints: BoxConstraints(
           minHeight: context.height,
         ),
@@ -27,7 +26,6 @@ Widget build(BuildContext context) {
           ),
         ),
       ),
-    ),
   );
 }
 }

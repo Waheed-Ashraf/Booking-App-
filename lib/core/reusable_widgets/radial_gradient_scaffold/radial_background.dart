@@ -9,7 +9,7 @@ class RadialBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
+        Flexible(
           child: Align(
             alignment: Alignment.topLeft,
             child: Container(
@@ -37,7 +37,7 @@ class RadialBackground extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
+        Flexible(
           child: Align(
             alignment: Alignment.bottomRight,
             child: Container(
