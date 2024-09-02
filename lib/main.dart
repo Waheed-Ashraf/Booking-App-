@@ -35,7 +35,7 @@ class Booking extends StatelessWidget {
         title: 'Ehgezly',
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouterManager.onGenerateRoute,
-        initialRoute: SplashScreen.routeName,
+        initialRoute: SignInScreen.routeName,
         theme: ThemeData(
           fontFamily: 'Rubik',
           visualDensity: VisualDensity.adaptivePlatformDensity,

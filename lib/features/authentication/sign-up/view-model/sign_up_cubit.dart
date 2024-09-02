@@ -68,7 +68,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
       emit(SignUpSuccessState());
     }
     on Failure catch (failure){
-      emit(SignUpVerificationFailureState(failure: IncorrectSmsFailure()));
+      emit(SignUpVerificationFailureState(failure: failure));
     }
     catch (e){
       emit(SignUpVerificationFailureState(failure: UnknownFailure('Something went wrong, try later')));

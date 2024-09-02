@@ -36,13 +36,13 @@ final class GoogleSignInService extends BaseGoogleSignInService{
         mergeEmailsForExistentUser(authException: e);
       }
       else{
-        rethrow;
+        throw FirebaseAuthFailure.fromMessage(e.code);
       }
-     //throw FirebaseAuthFailure.fromMessage(e.code);
+
   }
   catch (e){
-      rethrow;
-      //throw UnknownFailure('something went wrong while signing you in using google provider ');
+
+      throw UnknownFailure('something went wrong while signing you in using google provider ');
   }
   }
   Future<void> signOut() async {

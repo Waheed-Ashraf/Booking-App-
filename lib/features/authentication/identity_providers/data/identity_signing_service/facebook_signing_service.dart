@@ -41,12 +41,12 @@ final class FacebookSignInService extends BaseFacebookSignInService{
         mergeEmailsForExistentUser(authException: e);
       }
       else{
-        rethrow;
+        throw FirebaseAuthFailure.fromMessage(e.code);
       }
-      //throw FirebaseAuthFailure.fromMessage(e.code);
+
     } catch (e) {
-      rethrow;
-      //throw UnknownFailure(e.toString());
+
+      throw UnknownFailure(e.toString());
     }
     return;
   }
