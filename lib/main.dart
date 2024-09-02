@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:booking_depi_proj/features/SplashScreen/splash_screen.dart';
 import 'package:booking_depi_proj/core/router/router.dart';
 import 'package:booking_depi_proj/core/utils/bloc_observer.dart';

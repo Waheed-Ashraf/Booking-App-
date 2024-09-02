@@ -5,7 +5,7 @@ import 'package:booking_depi_proj/core/utils/constent_colors.dart';
 import 'package:booking_depi_proj/core/widgets/custom_snack_bar.dart';
 import 'package:booking_depi_proj/features/authentication/identity_providers/view/identity_provider_button.dart';
 import 'package:booking_depi_proj/features/authentication/identity_providers/view_model/identity_providers_cubit.dart';
-import 'package:booking_depi_proj/features/home/home_screen.dart';
+import 'package:booking_depi_proj/features/home/presentation/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,21 +17,24 @@ class IdentityProviders extends StatelessWidget {
     return BlocProvider(
       create: (context) => IdentityProvidersCubit(),
       child: BlocConsumer<IdentityProvidersCubit, IdentityProvidersStates>(
-        listener:(context,state){
-          if(state is IdentityProvidersSuccessSignState){
-            Navigator.of(context).pushNamedAndRemoveUntil(HomeScreen.routeName,(route) => false,);
+        listener: (context, state) {
+          if (state is IdentityProvidersSuccessSignState) {
+            Navigator.of(context).pushNamedAndRemoveUntil(
+              HomeScreen.routeName,
+              (route) => false,
+            );
           }
-          if(state is IdentityProvidersFailureSignState){
-            showSnackBar(context, color: redColor, message: state.failure.errMessage);
+          if (state is IdentityProvidersFailureSignState) {
+            showSnackBar(context,
+                color: redColor, message: state.failure.errMessage);
           }
         },
         builder: (context, state) {
-
           var cubit = IdentityProvidersCubit.getCubit(context);
 
           return Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: AppStyles.defaultPadding * 2),
+              padding:
+                  EdgeInsets.symmetric(vertical: AppStyles.defaultPadding * 2),
               child: Row(
                 children: [
                   Expanded(
