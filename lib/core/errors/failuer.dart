@@ -50,3 +50,8 @@ class ServerFailure extends Failure {
     }
   }
 }
+
+final class UnknownFailure extends Failure{
+
+  UnknownFailure(super.errMessage);
+}

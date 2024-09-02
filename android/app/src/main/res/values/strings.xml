@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ehgezly</string>
+    <string name="facebook_app_id">3996665560576811</string>
+    <string name="fb_login_protocol_scheme">fb4050ce018603dcb6fe0a3deca22062a6</string>
+    <string name="facebook_client_token">30fd398e2abecf5d17255bb2a7d6c5fd</string>
+</resources>

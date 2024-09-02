@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class text_and_descrition_Widget extends StatelessWidget {
-  const text_and_descrition_Widget({
+class TextAndDescriptionWidget extends StatelessWidget {
+  const TextAndDescriptionWidget({
     super.key,
     required this.text,
     required this.description,

@@ -1,3 +1,6 @@
+import 'package:booking_depi_proj/features/Onboarding/view/onboarding_screen_1.dart';
+import 'package:booking_depi_proj/features/Onboarding/view/onboarding_screen_2.dart';
+import 'package:booking_depi_proj/features/Onboarding/view/onboarding_screen_3.dart';
 import 'package:booking_depi_proj/features/authentication/sign-in/view/sign_in_screen.dart';
 import 'package:booking_depi_proj/features/authentication/sign-up/view/screens/sign_up_screen.dart';
 import 'package:booking_depi_proj/features/SplashScreen/splash_screen.dart';
@@ -16,8 +19,6 @@ final class RouterManager {
         MaterialPageRoute(builder: (context) => SignInScreen()),
       SignUpScreen.routeName =>
         MaterialPageRoute(builder: (context) => SignUpScreen()),
-      HomeScreen.routeName =>
-        MaterialPageRoute(builder: (context) => HomeScreen()),
       _ => MaterialPageRoute(builder: (context) => SplashScreen()),
     };
   }

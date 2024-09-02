@@ -1,5 +1,7 @@
+import 'dart:async';
+
 import 'package:booking_depi_proj/core/reusable_widgets/radial_gradient_scaffold/radial_gradient_scaffold.dart';
-import 'package:booking_depi_proj/features/Onboarding/view/Onboarding%20screen-01.dart';
+import 'package:booking_depi_proj/features/Onboarding/view/onboarding_screen_1.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,14 +15,10 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(
-      Duration(seconds: 3),
+   Timer(
+      const Duration(seconds: 3),
       () {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Onboarding_Screen01(),
-            ));
+        Navigator.of(context).pushNamedAndRemoveUntil(OnboardingScreen1.routeName, (route) => false,);
       },
     );
     // TODO: implement initState

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class elipsewidget02 extends StatelessWidget {
-  const elipsewidget02({
+class EllipseWidget2 extends StatelessWidget {
+  const EllipseWidget2({
     super.key,
   });
 

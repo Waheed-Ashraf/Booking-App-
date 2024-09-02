@@ -22,6 +22,20 @@ final class FieldValidator{
     return null;
   }
 
+  static String? passwordValidator(String? password){
+    if(password != null && password.isNotEmpty){
+      if(password.length < 6){
+        return 'Too Short password';
+      }
+        if(!isMixOfCharsAndNumbers(password)){
+
+          return 'Use Letters and numbers in password';
+        }
+        return null;
+    }
+    return 'Pleas, Write your password ';
+  }
+
   static bool containsNumbers(String name){
     for(int c = 0 ; c<name.length ; c++){
       if(int.tryParse(name[c]) != null){
@@ -29,6 +43,22 @@ final class FieldValidator{
       }
     }
     return false;
+  }
+
+  static bool isMixOfCharsAndNumbers(String any){
+    bool containsNumbers = false;
+    bool containsChars = false;
+
+    for(int c = 0 ; c < any.length ; c++){
+
+      if(int.tryParse(any[c]) == null){
+        containsChars = true;
+      }
+      else{
+        containsNumbers = true;
+      }
+    }
+    return (containsChars && containsNumbers);
   }
 
 }

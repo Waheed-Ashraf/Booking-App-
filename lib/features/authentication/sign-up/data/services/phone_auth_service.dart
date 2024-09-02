@@ -1,4 +1,9 @@
+import 'dart:async';
+import 'dart:developer';
+
+import 'package:booking_depi_proj/core/errors/failuer.dart';
 import 'package:booking_depi_proj/core/errors/firebase_failure.dart';
+import 'package:booking_depi_proj/core/errors/phone_failure.dart';
 import 'package:booking_depi_proj/core/utils/firebase_constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/rendering.dart';
@@ -6,22 +11,43 @@ import 'package:flutter/rendering.dart';
 abstract class PhoneAuthService{
 
   final auth = FirebaseConstants.auth;
+  final db = FirebaseConstants.db;
 
-  void verifyAndSignup(String phone);
+  Stream<String?> get verificationIdStream;
+
+  Future<void> verifyPhone(String phone);
+
+  Future<void> signUserUp({required String? verificationId, required String? smsCode, required String name});
 
 }
 
 final class PhoneAuthServiceImp extends PhoneAuthService{
-  @override
-  void verifyAndSignup(String phone) {
 
-    auth.verifyPhoneNumber(
+  StreamController<String?>  verificationIdStreamController= StreamController();
+  String? verificationId;
+
+  PhoneAuthServiceImp(){
+    Timer.periodic(Duration(seconds: 1), (timer){
+      verificationIdStreamController.sink.add(verificationId);
+      log('ver Id before adding to stream : $verificationId ');
+      if(verificationId!= null){
+        verificationIdStreamController.close();
+        timer.cancel();
+      }
+    });
+  }
+  @override
+  Future<void> verifyPhone(String phone)async{
+    log('formatted phone : $phone');
+    await auth.verifyPhoneNumber(
+      phoneNumber: phone,
+
         verificationCompleted: (credential)async{
-          await auth.signInWithCredential(credential);
+          log('verification completed, what then');
         },
         verificationFailed: (authException){
 
-          debugPrint('Fialure while auth using phone');
+          debugPrint('Failure while auth using phone');
           if(authException.code == FirebaseConstants.invalidVerificationCode) {
             throw FirebaseAuthFailure.fromMessage(authException.code);
           }
@@ -33,26 +59,66 @@ final class PhoneAuthServiceImp extends PhoneAuthService{
           }
 
         },
-        codeSent: (verificationId, resendToken)async{
-          // TODO: SHOW UI AND ACCEPT SMS CODE, YOU should return the code here
-          // do that through alerting the cubit
+        codeSent: (verifyId, resendToken)async{
 
+          verificationId = verifyId;
+          log('code sent, what then and verif id : $verificationId');
 
-          String smsCode = 'xxxx';
-
-          // Create a PhoneAuthCredential with the code
-          PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationId, smsCode: smsCode);
-
-          // Sign the user in (or link) with the credential
-          await auth.signInWithCredential(credential);
         },
         codeAutoRetrievalTimeout: (verificationId){
-
+          log('Auto-retreival timeout, what then');
         },
 
     );
 
   }
+
+  @override
+  Future<void> signUserUp({required String? verificationId, required String? smsCode, required String name})async{
+    if(smsCode == null || verificationId == null){
+
+      throw IncorrectSmsFailure();
+    }else{
+
+      if(smsCode.isEmpty || verificationId.isEmpty){
+        throw IncorrectSmsFailure();
+      }
+      else{
+        UserCredential userCredential;
+
+        try{
+          PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationId, smsCode: smsCode);
+          userCredential = await auth.signInWithCredential(credential);
+        }
+        on FirebaseException catch (exception){
+          throw FirebaseAuthFailure.fromMessage(exception.code);
+        }
+        catch (e){
+          throw IncorrectSmsFailure();
+        }
+
+        try{
+          await  db.collection(FirebaseConstants.usersCollection).doc(userCredential.user?.uid).set(
+              {
+                'name' : name,
+                'phone': userCredential.user?.phoneNumber,
+                'signing-method' : 'phone',
+              }
+          );
+        }
+        on FirebaseException catch (exception){
+          throw FirebaseAuthFailure.fromMessage(exception.code);
+        }
+        catch (e){
+          throw FirebaseAuthFailure.fromMessage(e.toString());
+        }
+      }
+    }
+
+  }
+
+  @override
+  Stream<String?> get verificationIdStream => verificationIdStreamController.stream;
 
 
 }

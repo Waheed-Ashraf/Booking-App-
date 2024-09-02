@@ -1,26 +1,51 @@
 {
   "project_info": {
-    "project_number": "614519210447",
-    "project_id": "ehgezly-df60a",
-    "storage_bucket": "ehgezly-df60a.appspot.com"
+    "project_number": "750375591875",
+    "project_id": "ehgezly-4e640",
+    "storage_bucket": "ehgezly-4e640.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:614519210447:android:96ba05c1582d42749692ba",
+        "mobilesdk_app_id": "1:750375591875:android:d29c51248c921001b12776",
         "android_client_info": {
           "package_name": "com.example.booking_depi_proj"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "750375591875-lq0jehagmn14eefcq1lp0s33mt4ef1ur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.booking_depi_proj",
+            "certificate_hash": "ed8c611563f086b36d6691709f7642fd59644ab9"
+          }
+        },
+        {
+          "client_id": "750375591875-qcaklvko2r3bo237c483kjda5cdtm7km.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDdlkjyM5VGhg1vf00f0xnixs7PYZm1pAM"
+          "current_key": "AIzaSyCDQMmJgdHiK6mwAe2kYThgwFirTwyPGSs"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "750375591875-qcaklvko2r3bo237c483kjda5cdtm7km.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "750375591875-uu0jgsctsfbdv05b9rrbsgitq0asg7f0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bookingDepiProj"
+              }
+            }
+          ]
         }
       }
     }

@@ -1,7 +1,7 @@
 import 'package:booking_depi_proj/core/extensions/spacers.dart';
 import 'package:booking_depi_proj/core/widgets/custom_text_field.dart';
 import 'package:booking_depi_proj/features/authentication/field_validators/field_validator.dart';
-import 'package:booking_depi_proj/features/authentication/sign-up/view/widgets/identity_proviers_widget/identity_providers.dart';
+import 'package:booking_depi_proj/features/authentication/identity_providers/view/identity_providers.dart';
 import 'package:flutter/material.dart';
 
 class SignUpSection extends StatefulWidget {
@@ -64,7 +64,7 @@ class _SignUpSectionState extends State<SignUpSection> {
       key: widget.formKey,
       child: Column(
         children: [
-          IdentityProviders(),
+          const IdentityProviders(),
           CustomTextField(
             focusNode: nameNode,
             controller: widget.nameController,
@@ -91,6 +91,7 @@ class _SignUpSectionState extends State<SignUpSection> {
             isPassword: true,
             text: 'Password',
             textInputAction: TextInputAction.done,
+            validator: FieldValidator.passwordValidator,
           ),
         ],
       ),

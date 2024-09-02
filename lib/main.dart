@@ -1,5 +1,8 @@
+import 'package:bloc/bloc.dart';
 import 'package:booking_depi_proj/features/SplashScreen/splash_screen.dart';
 import 'package:booking_depi_proj/core/router/router.dart';
+import 'package:booking_depi_proj/core/utils/bloc_observer.dart';
+import 'package:booking_depi_proj/features/authentication/sign-in/view/sign_in_screen.dart';
 import 'package:booking_depi_proj/features/authentication/sign-up/view/screens/sign_up_screen.dart';
 import 'package:booking_depi_proj/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,7 +15,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const Booking());
+  runApp(Booking());
 }
 
 class Booking extends StatelessWidget {
@@ -21,7 +24,7 @@ class Booking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(375, 812),
+        designSize: Size(375, 812),
         splitScreenMode: false,
         minTextAdapt: false,
         child: MaterialApp(
