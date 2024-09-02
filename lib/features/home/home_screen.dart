@@ -7,9 +7,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Ehgezly'),),
-      body: Center(child: Text('Home Screen')),
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(title: Text('Ehgezly'),),
+        body: Center(child: Text('Home Screen')),
+      ),
     );
   }
 }

@@ -1,33 +1,28 @@
+import 'dart:developer';
+
 import 'package:booking_depi_proj/core/utils/app_styles.dart';
 import 'package:booking_depi_proj/core/utils/constent_colors.dart';
 import 'package:flutter/material.dart';
 
-class TermsAndServicesRadioButton extends StatefulWidget {
 
-  const TermsAndServicesRadioButton({super.key});
+class TermsAndServicesRadioButton extends StatelessWidget{
 
-  @override
-  State<TermsAndServicesRadioButton> createState() => _TermsAndServicesRadioButtonState();
-}
+  final bool agree ;
+  final void Function(bool?) onChanged;
 
-class _TermsAndServicesRadioButtonState extends State<TermsAndServicesRadioButton> {
-
-  bool agree = false;
+  const TermsAndServicesRadioButton({required this.agree , required this.onChanged});
 
 
   @override
   Widget build(BuildContext context) {
+    log('agree in the terms itself $agree');
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
 
         Checkbox(
             value: agree,
-            onChanged: (newValue){
-              setState(() {
-                agree = newValue??false;
-              });
-            },
+            onChanged: onChanged,
           activeColor: Colors.grey,
           fillColor: WidgetStatePropertyAll(transparent),
           shape: RoundedRectangleBorder(

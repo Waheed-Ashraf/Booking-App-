@@ -44,39 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBVkR68GvY2ZDtMp-VJrYvtHOI86svTE3I',
-    appId: '1:614519210447:web:ef739a5fa16c56b49692ba',
-    messagingSenderId: '614519210447',
-    projectId: 'ehgezly-df60a',
-    authDomain: 'ehgezly-df60a.firebaseapp.com',
-    storageBucket: 'ehgezly-df60a.appspot.com',
-    measurementId: 'G-GJXKB2G6E2',
+    apiKey: 'AIzaSyCMfRpqcqLL4qsHjx99CcwjpnFL8NQLutU',
+    appId: '1:750375591875:web:86fccb28479b8458b12776',
+    messagingSenderId: '750375591875',
+    projectId: 'ehgezly-4e640',
+    authDomain: 'ehgezly-4e640.firebaseapp.com',
+    storageBucket: 'ehgezly-4e640.appspot.com',
+    measurementId: 'G-MPTC4WJC94',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDdlkjyM5VGhg1vf00f0xnixs7PYZm1pAM',
-    appId: '1:614519210447:android:96ba05c1582d42749692ba',
-    messagingSenderId: '614519210447',
-    projectId: 'ehgezly-df60a',
-    storageBucket: 'ehgezly-df60a.appspot.com',
+    apiKey: 'AIzaSyCDQMmJgdHiK6mwAe2kYThgwFirTwyPGSs',
+    appId: '1:750375591875:android:d29c51248c921001b12776',
+    messagingSenderId: '750375591875',
+    projectId: 'ehgezly-4e640',
+    storageBucket: 'ehgezly-4e640.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBHxaRi6LmC2matzyhE1V-vEnMhY2dp5p8',
-    appId: '1:614519210447:ios:48ad0e167b64e7709692ba',
-    messagingSenderId: '614519210447',
-    projectId: 'ehgezly-df60a',
-    storageBucket: 'ehgezly-df60a.appspot.com',
+    apiKey: 'AIzaSyB_BCNsI74t4Xvr6m9JdzOfBLk6-S3r_Hc',
+    appId: '1:750375591875:ios:7c3c2e3dad1e9bd2b12776',
+    messagingSenderId: '750375591875',
+    projectId: 'ehgezly-4e640',
+    storageBucket: 'ehgezly-4e640.appspot.com',
     iosBundleId: 'com.example.bookingDepiProj',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBVkR68GvY2ZDtMp-VJrYvtHOI86svTE3I',
-    appId: '1:614519210447:web:2d033272fb450ca69692ba',
-    messagingSenderId: '614519210447',
-    projectId: 'ehgezly-df60a',
-    authDomain: 'ehgezly-df60a.firebaseapp.com',
-    storageBucket: 'ehgezly-df60a.appspot.com',
-    measurementId: 'G-S88CKJKC0R',
+    apiKey: 'AIzaSyCMfRpqcqLL4qsHjx99CcwjpnFL8NQLutU',
+    appId: '1:750375591875:web:0ac4f31d2927911fb12776',
+    messagingSenderId: '750375591875',
+    projectId: 'ehgezly-4e640',
+    authDomain: 'ehgezly-4e640.firebaseapp.com',
+    storageBucket: 'ehgezly-4e640.appspot.com',
+    measurementId: 'G-EVM3PYGR8B',
   );
+
 }

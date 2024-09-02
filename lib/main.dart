@@ -1,4 +1,7 @@
+import 'package:bloc/bloc.dart';
 import 'package:booking_depi_proj/core/router/router.dart';
+import 'package:booking_depi_proj/core/utils/bloc_observer.dart';
+import 'package:booking_depi_proj/features/authentication/sign-in/view/sign_in_screen.dart';
 import 'package:booking_depi_proj/features/authentication/sign-up/view/screens/sign_up_screen.dart';
 import 'package:booking_depi_proj/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,6 +15,8 @@ void main()async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Bloc.observer = MyBlocObserver();
+
   runApp(Booking());
 }
 
