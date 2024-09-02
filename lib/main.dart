@@ -1,4 +1,6 @@
+
 import 'package:bloc/bloc.dart';
+import 'package:booking_depi_proj/features/SplashScreen/splash_screen.dart';
 import 'package:booking_depi_proj/core/router/router.dart';
 import 'package:booking_depi_proj/core/utils/bloc_observer.dart';
 import 'package:booking_depi_proj/features/authentication/sign-in/view/sign_in_screen.dart';
@@ -33,7 +35,7 @@ class Booking extends StatelessWidget {
         title: 'Ehgezly',
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouterManager.onGenerateRoute,
-        initialRoute: SignUpScreen.routeName,
+        initialRoute: SplashScreen.routeName,
         theme: ThemeData(
           fontFamily: 'Rubik',
           visualDensity: VisualDensity.adaptivePlatformDensity,
