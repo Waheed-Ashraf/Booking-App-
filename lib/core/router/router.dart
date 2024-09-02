@@ -19,6 +19,8 @@ final class RouterManager {
         MaterialPageRoute(builder: (context) => SignInScreen()),
       SignUpScreen.routeName =>
         MaterialPageRoute(builder: (context) => SignUpScreen()),
+      HomeScreen.routeName =>
+        MaterialPageRoute(builder: (context) => HomeScreen()),
       _ => MaterialPageRoute(builder: (context) => SplashScreen()),
     };
   }
