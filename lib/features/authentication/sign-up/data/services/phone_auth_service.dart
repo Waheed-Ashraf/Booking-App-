@@ -27,13 +27,20 @@ final class PhoneAuthServiceImp extends PhoneAuthService{
   String? verificationId;
 
   PhoneAuthServiceImp(){
-    Timer.periodic(Duration(seconds: 1), (timer){
-      verificationIdStreamController.sink.add(verificationId);
-      log('ver Id before adding to stream : $verificationId ');
-      if(verificationId!= null){
+    Timer.periodic(Duration(seconds: 1), (timer)async{
+      if(verificationIdStreamController.hasListener){
+        log('sending verification from stream');
+        verificationIdStreamController.sink.add(verificationId);
+        if(verificationId!= null){
+          verificationIdStreamController.close();
+          timer.cancel();
+        }
+      }
+      if((timer.tick > 5) && (!verificationIdStreamController.hasListener)){
         verificationIdStreamController.close();
         timer.cancel();
       }
+
     });
   }
   @override

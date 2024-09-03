@@ -5,7 +5,7 @@ import 'package:booking_depi_proj/features/Onboarding/view/onboarding_screen_1.d
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
-  static const routeName = '/Splash';
+  static const routeName = '/splash';
   const SplashScreen({super.key});
 
   @override
@@ -15,14 +15,14 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-   Timer(
+    super.initState();
+    Timer(
       const Duration(seconds: 3),
       () {
         Navigator.of(context).pushNamedAndRemoveUntil(OnboardingScreen1.routeName, (route) => false,);
       },
     );
-    // TODO: implement initState
-    super.initState();
+
   }
 
   @override

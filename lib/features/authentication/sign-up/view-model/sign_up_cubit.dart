@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
@@ -20,6 +21,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
   final nameController = TextEditingController();
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
+  late final StreamSubscription<String?> verificationIdStreamSubscription;
 
   late final BasePhoneAuthRepo _phoneAuthRepo;
 
@@ -27,12 +29,16 @@ class SignUpCubit extends Cubit<SignUpStates> {
   String? verificationId;
 
   SignUpCubit() : super(SignUpInitial()){
+
+    // the following line opens the stream on creation of the phone auth service
     _phoneAuthRepo = PhoneAuthRepo(service: PhoneAuthServiceImp());
-    _phoneAuthRepo.verificationIdStream.listen(
+
+    verificationIdStreamSubscription = _phoneAuthRepo.verificationIdStream.listen(
         (String? verifiedId){
+          log('ver Id received in stream : $verificationId ');
           if(verifiedId != null){
             verificationId = verifiedId;
-            log('ver Id received in stream : $verificationId ');
+            cancelStreamSubscription();
           }
         },
     );
@@ -65,6 +71,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
 
     try{
       await _phoneAuthRepo.signUserUp(verificationId: verificationId!, smsCode: smsCode, name: nameController.text);
+      cancelStreamSubscription();
       emit(SignUpSuccessState());
     }
     on Failure catch (failure){
@@ -91,6 +98,16 @@ class SignUpCubit extends Cubit<SignUpStates> {
     }
     smsCode = accumulator;
     finallySignUp();
+  }
+
+  void cancelStreamSubscription()async{
+    await verificationIdStreamSubscription.cancel();
+  }
+
+  @override
+  Future<void> close()async {
+    await verificationIdStreamSubscription.cancel();
+    return super.close();
   }
 
 }

@@ -7,7 +7,7 @@ import 'package:booking_depi_proj/features/authentication/sign-up/view/screens/s
 import 'package:flutter/material.dart';
 
 class OnboardingScreen3 extends StatelessWidget {
-  static const routeName = 'onBoarding3';
+  static const routeName = '/onBoarding3';
   const OnboardingScreen3({super.key});
 
   @override

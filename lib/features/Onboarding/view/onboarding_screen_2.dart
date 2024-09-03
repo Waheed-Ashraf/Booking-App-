@@ -4,12 +4,12 @@ import 'package:booking_depi_proj/features/Onboarding/view/onboarding_screen_3.d
 import 'package:booking_depi_proj/features/Onboarding/widget/custom_elipse_widget2.dart';
 import 'package:booking_depi_proj/features/Onboarding/widget/custome_Image_widget1.dart';
 import 'package:booking_depi_proj/features/Onboarding/widget/text_and_descrition_Widget.dart';
-import 'package:booking_depi_proj/features/authentication/sign-in/view/sign_in_screen.dart';
+import 'package:booking_depi_proj/features/authentication/sign-in/view/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen2 extends StatelessWidget {
 
-  static const routeName = 'onBoarding2';
+  static const routeName = '/onBoarding2';
 
   const OnboardingScreen2({super.key});
 

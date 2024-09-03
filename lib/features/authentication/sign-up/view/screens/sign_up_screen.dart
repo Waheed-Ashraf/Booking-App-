@@ -8,7 +8,7 @@ import 'package:booking_depi_proj/core/reusable_widgets/radial_gradient_scaffold
 import 'package:booking_depi_proj/core/utils/app_styles.dart';
 import 'package:booking_depi_proj/core/utils/constent_colors.dart';
 import 'package:booking_depi_proj/core/widgets/custom_snack_bar.dart';
-import 'package:booking_depi_proj/features/authentication/sign-in/view/sign_in_screen.dart';
+import 'package:booking_depi_proj/features/authentication/sign-in/view/screens/sign_in_screen.dart';
 import 'package:booking_depi_proj/features/authentication/sign-up/view-model/sign_up_cubit.dart';
 import 'package:booking_depi_proj/features/authentication/sign-up/view/widgets/code_bottom_sheet/code_bottom_sheet.dart';
 import 'package:booking_depi_proj/features/authentication/sign-up/view/widgets/redirection_text_button.dart';
@@ -120,7 +120,10 @@ class SignUpScreen extends StatelessWidget {
 
                         }),
                         RedirectionTextButton(
-                          text: 'Have an Account?  Sign in', onPressed: () {},),
+                          text: 'Have an Account?  Sign in', onPressed: (){
+                            cubit.cancelStreamSubscription();
+                            Navigator.of(context).pushNamed(SignInScreen.routeName);
+                        },),
                       ],
                     ),
                   ),
