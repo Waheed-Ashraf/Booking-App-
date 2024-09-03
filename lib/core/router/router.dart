@@ -3,8 +3,8 @@ import 'package:booking_depi_proj/features/Onboarding/view/onboarding_screen_2.d
 import 'package:booking_depi_proj/features/Onboarding/view/onboarding_screen_3.dart';
 import 'package:booking_depi_proj/features/authentication/sign-in/view/screens/sign_in_screen.dart';
 import 'package:booking_depi_proj/features/authentication/sign-up/view/screens/sign_up_screen.dart';
-import 'package:booking_depi_proj/features/home/home_screen.dart';
 import 'package:booking_depi_proj/features/SplashScreen/splash_screen.dart';
+import 'package:booking_depi_proj/features/home/presentation/views/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,8 +25,7 @@ final class RouterManager{
       OnboardingScreen3.routeName=> MaterialPageRoute(builder: (context)=>OnboardingScreen3()),
 
       _ => MaterialPageRoute(builder: (context)=>HomeScreen()),
+
     };
-
-
   }
 }
