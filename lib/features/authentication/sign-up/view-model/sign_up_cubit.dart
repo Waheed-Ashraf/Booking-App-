@@ -70,7 +70,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
   void finallySignUp()async{
 
     try{
-      await _phoneAuthRepo.signUserUp(verificationId: verificationId!, smsCode: smsCode, name: nameController.text);
+      await _phoneAuthRepo.signUserUp(verificationId: verificationId!, smsCode: smsCode, name: nameController.text, password: passwordController.text);
       cancelStreamSubscription();
       emit(SignUpSuccessState());
     }

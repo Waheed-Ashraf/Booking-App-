@@ -18,4 +18,7 @@ final class FirebaseConstants{
   // db collections
 
   static const usersCollection = 'users';
+
+  // user scope
+  static const currentUserUid = 'uid';
 }

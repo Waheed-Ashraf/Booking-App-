@@ -17,7 +17,7 @@ abstract class PhoneAuthService{
 
   Future<void> verifyPhone(String phone);
 
-  Future<void> signUserUp({required String? verificationId, required String? smsCode, required String name});
+  Future<void> signUserUp({required String? verificationId, required String? smsCode, required String name, required String password});
 
 }
 
@@ -81,7 +81,7 @@ final class PhoneAuthServiceImp extends PhoneAuthService{
   }
 
   @override
-  Future<void> signUserUp({required String? verificationId, required String? smsCode, required String name})async{
+  Future<void> signUserUp({required String? verificationId, required String? smsCode, required String name, required String password})async{
     if(smsCode == null || verificationId == null){
 
       throw IncorrectSmsFailure();
@@ -109,7 +109,7 @@ final class PhoneAuthServiceImp extends PhoneAuthService{
               {
                 'name' : name,
                 'phone': userCredential.user?.phoneNumber,
-                'signing-method' : 'phone',
+                'password' : password,
               }
           );
         }

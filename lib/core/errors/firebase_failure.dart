@@ -1,5 +1,4 @@
 import 'package:booking_depi_proj/core/utils/firebase_constants.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 import 'failuer.dart';
 
@@ -17,4 +16,9 @@ final class FirebaseAuthFailure extends Failure {
       _ => FirebaseAuthFailure('Unknown Error occurred, try again later'),
     };
   }
+}
+
+final class GeneralFireStoreFailure extends Failure{
+
+  GeneralFireStoreFailure():super('Couldn\'t make R/W right now, check You Internet or try later');
 }

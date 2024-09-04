@@ -14,6 +14,7 @@ import 'package:booking_depi_proj/features/authentication/sign-up/view/widgets/c
 import 'package:booking_depi_proj/features/authentication/sign-up/view/widgets/redirection_text_button.dart';
 import 'package:booking_depi_proj/features/authentication/sign-up/view/widgets/sing_up_section.dart';
 import 'package:booking_depi_proj/features/authentication/sign-up/view/widgets/terms_services_radio.dart';
+import 'package:booking_depi_proj/features/home/presentation/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,7 +52,7 @@ class SignUpScreen extends StatelessWidget {
           }
           if(state is SignUpSuccessState){
             showSnackBar(context, color: greenColor, message: 'Signed Up !');
-            Timer(Duration(seconds: 2), ()=>Navigator.of(context).pushNamed(SignInScreen.routeName));
+            Timer(const Duration(seconds: 2), ()=>Navigator.of(context).pushNamed(HomeScreen.routeName));
           }
         },
         builder: (context, state) {

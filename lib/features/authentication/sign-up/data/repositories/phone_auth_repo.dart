@@ -14,7 +14,9 @@ abstract class BasePhoneAuthRepo{
 
   Future<void> verifyPhone(String phone);
 
-  Future<void> signUserUp({required String? verificationId, required String? smsCode, required String name});
+  Future<void> signUserUp({required String? verificationId, required String? smsCode, required String name,  required String password});
+
+  Future<String> formatToInternationalNumber(String phone);
 }
 
 final class PhoneAuthRepo extends BasePhoneAuthRepo{
@@ -36,10 +38,10 @@ final class PhoneAuthRepo extends BasePhoneAuthRepo{
   }
 
   @override
-  Future<void> signUserUp({required String? verificationId, required String? smsCode, required String name})async{
-    await service.signUserUp(verificationId: verificationId, smsCode: smsCode, name: name);
+  Future<void> signUserUp({required String? verificationId, required String? smsCode, required String name,  required String password})async{
+    await service.signUserUp(verificationId: verificationId, smsCode: smsCode, name: name, password:  password);
   }
-
+  @override
   Future<String> formatToInternationalNumber(String phone) async {
 
     PhoneNumber number;

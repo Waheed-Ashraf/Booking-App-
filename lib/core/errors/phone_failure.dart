@@ -9,3 +9,8 @@ final class IncorrectSmsFailure extends Failure{
 
   IncorrectSmsFailure():super('The code is wrong, recheck your phone');
 }
+
+final class IncorrectPhoneOrPasswordFailure extends Failure{
+
+  IncorrectPhoneOrPasswordFailure():super('Either Phone or Password is wrong!');
+}

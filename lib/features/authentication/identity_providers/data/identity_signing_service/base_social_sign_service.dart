@@ -43,7 +43,7 @@ abstract class BaseSocialSigningService{
     await db.collection(FirebaseConstants.usersCollection).doc(user.user?.uid).set({
       'name' : user.user?.displayName??'',
       'phone' : user.user?.phoneNumber??'',
-      'img' : user.user?.photoURL??'',
+      'image' : user.user?.photoURL??'',
       'email' : user.user?.email??'',
     });
   }
