@@ -13,17 +13,17 @@ class RadialGradientScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: radialColor.withOpacity(.5),
+      statusBarColor: radialColor.withOpacity(.7),
       statusBarIconBrightness: Brightness.dark,
       systemNavigationBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: radialColor.withOpacity(.5),
+      systemNavigationBarColor: radialColor.withOpacity(.7),
       systemNavigationBarDividerColor: Colors.transparent,
     ));
-    return SafeArea(
-      child: Scaffold(
-        key: scaffoldKey,
-        //resizeToAvoidBottomInset: true, // Ensures the scaffold resizes when keyboard appears
-        body: ConstrainedBox(
+    return Scaffold(
+      key: scaffoldKey,
+      //resizeToAvoidBottomInset: true, // Ensures the scaffold resizes when keyboard appears
+      body: SafeArea(
+        child: ConstrainedBox(
           constraints: BoxConstraints(
             minHeight: context.height,
           ),
