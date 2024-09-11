@@ -69,7 +69,7 @@ class CodeBottomSheet extends StatelessWidget {
 
                             Expanded(
                               child: CustomFilledButton(text: 'Resend Code', onPressed: (){
-                              
+
                               }),
                             ),
                             AppStyles.defaultPadding.horizontalSpace,

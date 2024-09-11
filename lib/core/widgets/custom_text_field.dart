@@ -39,8 +39,14 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  bool _isObscured = false;
+  late bool _isObscured ;
 
+  @override
+  @override
+  void initState() {
+    super.initState();
+    _isObscured = widget.isPassword ?? false ? true : false;
+  }
   void _toggleVisibility() {
     setState(() {
       _isObscured = !_isObscured;

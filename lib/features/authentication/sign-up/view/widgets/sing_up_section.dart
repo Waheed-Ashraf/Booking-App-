@@ -35,6 +35,12 @@ class _SignUpSectionState extends State<SignUpSection> {
     nameNode.addListener(scrollToEnd);
     phoneNode.addListener(scrollToEnd);
     passwordNode.addListener(scrollToEnd);
+
+    if(mounted){
+      nameNode.unfocus();
+      phoneNode.unfocus();
+      passwordNode.unfocus();
+    }
   }
 
   @override

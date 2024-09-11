@@ -27,24 +27,30 @@ final class PhoneAuthServiceImp extends PhoneAuthService{
   String? verificationId;
 
   PhoneAuthServiceImp(){
+    openTheStream();
+    }
+
+  void openTheStream()async{
     Timer.periodic(Duration(seconds: 1), (timer)async{
       if(verificationIdStreamController.hasListener){
         log('sending verification from stream');
         verificationIdStreamController.sink.add(verificationId);
         if(verificationId!= null){
-          verificationIdStreamController.close();
+          await verificationIdStreamController.close();
           timer.cancel();
         }
       }
       if((timer.tick > 5) && (!verificationIdStreamController.hasListener)){
-        verificationIdStreamController.close();
+        await verificationIdStreamController.close();
         timer.cancel();
       }
+     }
+    );
 
-    });
   }
   @override
   Future<void> verifyPhone(String phone)async{
+
     log('formatted phone : $phone');
     await auth.verifyPhoneNumber(
       phoneNumber: phone,

@@ -1,4 +1,5 @@
 import 'package:booking_depi_proj/core/extensions/spacers.dart';
+import 'package:booking_depi_proj/core/reusable_widgets/custom_circular_indicator.dart';
 import 'package:booking_depi_proj/core/reusable_widgets/filled_button.dart';
 import 'package:booking_depi_proj/core/utils/app_styles.dart';
 import 'package:booking_depi_proj/core/widgets/custom_text_field.dart';
@@ -12,36 +13,40 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginSection extends StatefulWidget {
-  final TextEditingController phoneController;
-  final TextEditingController passwordController;
+
   final ScrollController? scrollController;
 
 
   const LoginSection(
-      {super.key, required this.phoneController, required this.passwordController, this.scrollController});
+      {super.key,this.scrollController});
 
   @override
   State<LoginSection> createState() => _LoginSectionState();
 }
 
 class _LoginSectionState extends State<LoginSection> {
+  final phoneController = TextEditingController();
+  final passwordController = TextEditingController();
+
   final phoneFocusNode = FocusNode();
   final passwordFocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+
     phoneFocusNode.addListener(scrollToEnd);
     passwordFocusNode.addListener(scrollToEnd);
   }
 
   void scrollToEnd() {
+
     if (phoneFocusNode.hasFocus || passwordFocusNode.hasFocus) {
       if (widget.scrollController != null) {
         if (widget.scrollController!.hasClients) {
           widget.scrollController?.animateTo(
               widget.scrollController!.position.maxScrollExtent,
-              duration: Duration(milliseconds: 400), curve: Curves.easeOut);
+              duration: const Duration(milliseconds: 400), curve: Curves.easeOut);
         }
       }
     }
@@ -60,7 +65,7 @@ class _LoginSectionState extends State<LoginSection> {
             CustomTextField(
               focusNode: phoneFocusNode,
               textInputAction: TextInputAction.next,
-              controller: widget.phoneController,
+              controller: phoneController,
               keyboardType: TextInputType.phone,
               validator: FieldValidator.internationalPhoneValidator,
               text: 'Phone',
@@ -71,7 +76,7 @@ class _LoginSectionState extends State<LoginSection> {
             CustomTextField(
               focusNode: passwordFocusNode,
               textInputAction: TextInputAction.done,
-              controller: widget.passwordController,
+              controller: passwordController,
               keyboardType: TextInputType.visiblePassword,
               validator: FieldValidator.passwordValidator,
               text: 'Password',
@@ -83,12 +88,14 @@ class _LoginSectionState extends State<LoginSection> {
               vertical: 10.h,
               horizontal: AppStyles.defaultPadding,
             ),
-              child: CustomFilledButton(text: 'Login', onPressed: () {
-                cubit.signUserIn();
+              child: state is SignInLoadingState? CustomCircularIndicator():CustomFilledButton(text: 'Sign in', onPressed: () {
+                cubit.signUserIn(phone: phoneController.text, password: passwordController.text);
               }),
             ),
 
-            RedirectionTextButton(text: 'Forget Password', onPressed: () {}),
+            RedirectionTextButton(text: 'Forget Password', onPressed: () {
+              cubit.userForgetPassword();
+            }),
 
             RedirectionTextButton(text: 'Don\'t Have an account, Join us',
                 onPressed: () =>
@@ -106,8 +113,8 @@ class _LoginSectionState extends State<LoginSection> {
     phoneFocusNode.dispose();
     passwordFocusNode.dispose();
     widget.scrollController?.dispose();
-    widget.phoneController.dispose();
-    widget.passwordController.dispose();
+    phoneController.dispose();
+    passwordController.dispose();
     super.dispose();
   }
 }

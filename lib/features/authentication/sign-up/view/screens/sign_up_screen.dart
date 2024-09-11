@@ -43,12 +43,17 @@ class SignUpScreen extends StatelessWidget {
             showSnackBar(context ,color: redColor, message: state.failure.errMessage);
           }
           if(state is SignUpShowCodeBottomSheetState){
-            scaffoldKey.currentState?.showBottomSheet(
+            scaffoldKey.currentState!.showBottomSheet(
               (context)=>CodeBottomSheet(),
               backgroundColor: radialColor.withOpacity(1),
               enableDrag: true,
               showDragHandle: true,
-            );
+              sheetAnimationStyle: AnimationStyle(
+                  duration: Duration(seconds: 1),
+                  curve: Curves.easeOut,
+                  reverseCurve: Curves.easeOut,
+                  reverseDuration: const Duration(seconds: 1)),
+              );
           }
           if(state is SignUpSuccessState){
             showSnackBar(context, color: greenColor, message: 'Signed Up !');
