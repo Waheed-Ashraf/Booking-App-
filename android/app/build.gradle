@@ -35,20 +35,20 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    signingConfigs {
-        debug{
-            keyAlias 'bookingAppKey'
-            keyPassword 'DEPIDEPI'
-            storeFile file('bookingAppKey.jks')
-            storePassword 'DEPIDEPI'
-        }
-        release {
-            keyAlias 'bookingAppKey'
-            keyPassword 'DEPIDEPI'
-            storeFile file('bookingAppKey.jks')
-            storePassword 'DEPIDEPI'
-        }
-    }
+    // signingConfigs {
+    //     debug{
+    //         keyAlias 'bookingAppKey'
+    //         keyPassword 'DEPIDEPI'
+    //         storeFile file('bookingAppKey.jks')
+    //         storePassword 'DEPIDEPI'
+    //     }
+    //     release {
+    //         keyAlias 'bookingAppKey'
+    //         keyPassword 'DEPIDEPI'
+    //         storeFile file('bookingAppKey.jks')
+    //         storePassword 'DEPIDEPI'
+    //     }
+    // }
 
     kotlinOptions {
         jvmTarget = "11"
@@ -61,17 +61,17 @@ android {
         targetSdk = flutter.targetSdkVersion
     }
 
-    buildTypes {
-        debug{
-            signingConfig signingConfigs.debug
-        }
-        release {
-            signingConfig signingConfigs.release
-            minifyEnabled false // This is optional but recommended for initial setup
-            shrinkResources false // This is optional but recommended for initial setup
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
+    // buildTypes {
+    //     debug{
+    //         signingConfig signingConfigs.debug
+    //     }
+    //     release {
+    //         signingConfig signingConfigs.release
+    //         minifyEnabled false // This is optional but recommended for initial setup
+    //         shrinkResources false // This is optional but recommended for initial setup
+    //         proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    //     }
+    // }
 }
 
 flutter {

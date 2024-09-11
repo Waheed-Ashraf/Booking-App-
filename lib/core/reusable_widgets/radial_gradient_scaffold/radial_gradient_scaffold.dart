@@ -12,31 +12,31 @@ class RadialGradientScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: radialColor.withOpacity(.5),
-        statusBarIconBrightness: Brightness.dark,
-        systemNavigationBarIconBrightness: Brightness.dark,
-        systemNavigationBarColor: radialColor.withOpacity(.5),
-        systemNavigationBarDividerColor: Colors.transparent,
-      )
-    );
-    return Scaffold(
-      key: scaffoldKey,
-      //resizeToAvoidBottomInset: true, // Ensures the scaffold resizes when keyboard appears
-      body: ConstrainedBox(
-        constraints: BoxConstraints(
-          minHeight: context.height,
-        ),
-        child: IntrinsicHeight(
-          // Ensures the Stack takes up minimum height of the screen
-          child: Stack(
-            fit: StackFit.expand,
-            alignment: Alignment.topCenter,
-            children: [
-              const RadialBackground(),
-              body,
-            ],
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: radialColor.withOpacity(.5),
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: radialColor.withOpacity(.5),
+      systemNavigationBarDividerColor: Colors.transparent,
+    ));
+    return SafeArea(
+      child: Scaffold(
+        key: scaffoldKey,
+        //resizeToAvoidBottomInset: true, // Ensures the scaffold resizes when keyboard appears
+        body: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: context.height,
+          ),
+          child: IntrinsicHeight(
+            // Ensures the Stack takes up minimum height of the screen
+            child: Stack(
+              fit: StackFit.expand,
+              alignment: Alignment.topCenter,
+              children: [
+                const RadialBackground(),
+                body,
+              ],
+            ),
           ),
         ),
       ),
